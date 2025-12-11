@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Bio-data — Tejas Gowda GM</title>
+    
+    <style>
+        /* Minimal Generic CSS for structure and printability */
+
+        /* General Setup */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header/Navigation */
+        .site-header {
+            background: #2a9d8f; /* Teal color inspired by the resume image */
+            color: white;
+            padding: 10px 0;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        /* Main Content */
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Profile Section Specifics */
+        .profile h2 {
+            border-bottom: 2px solid #2a9d8f;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+
+        .profile .flex {
+            display: flex;
+            gap: 20px;
+        }
+
+        .avatar img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        /* Skills Chips */
+        .chips {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chips li {
+            background: #e0f2f1; /* Light teal background */
+            color: #2a9d8f;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #2a9d8f;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #e76f51; /* A contrasting color for action */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #f4a261;
+        }
+
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        /* Print Styles (Crucial for "Save as PDF") */
+        @media print {
+            /* Hide non-essential elements for a clean resume */
+            .site-header,
+            .site-footer,
+            .contact, 
+            #printBtn { 
+                display: none;
+            }
+
+            /* Reset background and box-shadow for a clean white page */
+            body {
+                background: white;
+                color: black;
+            }
+
+            .card {
+                box-shadow: none;
+                margin-bottom: 10px;
+                padding: 0; 
+            }
+
+            /* Ensure the main content uses the full width */
+            .container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="site-title">Tejas Gowda GM</h1>
+        <nav>
+          <a href="index.html">Bio-data</a>
+          <a href="resume.html">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card profile">
+        <h2>Bio-data</h2>
+        <div class="flex">
+          <div class="avatar">
+                        <img src="https://via.placeholder.com/160" alt="Tejas Gowda GM photo" />
+          </div>
+          <div class="info">
+            <p><strong>Name:</strong> Tejas Gowda GM</p>
+            <p><strong>Date of Birth:</strong> March 2, 2005</p>
+            <p><strong>Address:</strong> No 49/b Harohalli, Kanakapura</p>
+            <p><strong>Phone:</strong> 9591522159</p>
+            <p><strong>Email:</strong> <a href="mailto:tejasgowdagm272@gmail.com">tejasgowdagm272@gmail.com</a></p>
+            <p><strong>Objective:</strong> An aspiring student pursuing B.Tech in Computer Science/Engineering with a keen interest in Web Development and IoT projects.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card skills">
+        <h2>Skills</h2>
+        <ul class="chips">
+          <li>JAVA</li>
+          <li>PYTHON</li>
+          <li>C</li>
+          <li>Web Design</li>
+          <li>HTML</li>
+          <li>CSS</li>
+        </ul>
+      </section>
+
+      <section class="card contact">
+        <h2>Quick Links</h2>
+        <p><a href="resume.html" class="btn">View Full Resume</a></p>
+                <p><button id="printBtn" class="btn">Print / Save as PDF</button></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© <span id="year"></span> Tejas Gowda GM — Hosted on GitHub Pages / Netlify</small>
+      </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // 1. Function to update the copyright year dynamically
+            const yearSpan = document.getElementById('year');
+            const currentYear = new Date().getFullYear();
+            
+            if (yearSpan) {
+                yearSpan.textContent = currentYear;
+            }
+
+            // 2. Function to handle the Print / Save as PDF button
+            const printButton = document.getElementById('printBtn');
+            
+            if (printButton) {
+                printButton.addEventListener('click', () => {
+                    // Triggers the browser's native print dialog, allowing "Save as PDF".
+                    window.print();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
